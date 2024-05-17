@@ -15,9 +15,9 @@ let wrongNum = "15"
 let duration = 1000;
 let nice = 0;
 let timer = 60; //per mins
-
-
-
+let play = document.querySelector(".Player-name")
+let pageName = window.location.pathname.split('/')
+const rest = document.querySelector(".rest")
 
 // console.log(rangeNumbrsArry.length)
 // let randumNum = Math.floor(Math.random() * boxArry.length)
@@ -64,14 +64,22 @@ boxArry.forEach((box, i) => {
                 win.classList.add("display-flex")
                 clearInterval(countDownIntrvel)
                 document.querySelector(".background").pause()
-
+                if (pageName[1] === "level-two.html") {
+                    localStorage.clear()
+                }
             }
+
         }
 
     })
 
-
 })
+
+if (pageName[1] === "level-two.html") {
+    playerPlayBotton.style.display = "none"
+    play.style.display = "none"
+
+}
 
 function stopClick() {
     blocks.classList.add("no-click");
@@ -116,14 +124,14 @@ function matchOrNot(firstBox, scoundBox) {
             gameOver.classList.add("display-flex")
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
+            localStorage.clear()
         }
         document.querySelector(".success").play()
     }
 
 
 }
-let play = document.querySelector(".Player-name")
-console.log(play)
+
 startGame.addEventListener("click", () => {
     if (play.classList.contains("one")) {
         splashScreen.classList.add("display-non")
@@ -136,13 +144,19 @@ startGame.addEventListener("click", () => {
         document.querySelector(".background").play()
         PlayerInput.classList.add("display-non")
         splashScreen.classList.add("display-non")
+        countDown(timer)
+        start()
     }
 
 
 
 })
+
+
 playerPlayBotton.addEventListener("click", () => {
+
     namePlayer.innerHTML = PlayerInput.value
+    localStorage.setItem("value", JSON.stringify(namePlayer.innerHTML))
     if (play.classList.contains("one")) {
         if (PlayerInput.value !== "") {
             play.style.display = "none"
@@ -152,16 +166,16 @@ playerPlayBotton.addEventListener("click", () => {
 
     } else {
         if (PlayerInput.classList.contains("display-non")) {
-            play.style.display = "none"
             start()
             countDown(timer)
         }
     }
-
-
-
 })
+let nameValue = localStorage.getItem("value")
 
+if (nameValue) {
+    namePlayer.innerHTML = JSON.parse(nameValue)
+}
 window.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         playerPlayBotton.click()
@@ -184,6 +198,7 @@ function countDown() {
             gameOver.classList.add("display-flex")
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
+            localStorage.clear()
         }
         if (timer < 10) {
             timerSction.style.color = "red"
@@ -194,3 +209,7 @@ function countDown() {
 
 
 }
+
+rest.addEventListener("click", () => {
+    localStorage.clear()
+})
