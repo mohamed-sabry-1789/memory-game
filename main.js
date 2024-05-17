@@ -122,24 +122,41 @@ function matchOrNot(firstBox, scoundBox) {
 
 
 }
-
-
+let play = document.querySelector(".Player-name")
+console.log(play)
 startGame.addEventListener("click", () => {
-    splashScreen.classList.add("display-non")
-    document.querySelector(".background").play()
-    //or
-    // splashScreen.remove()
-    PlayerInput.focus()
+    if (play.classList.contains("one")) {
+        splashScreen.classList.add("display-non")
+        document.querySelector(".background").play()
+        //or
+        // splashScreen.remove()
+        PlayerInput.focus()
+
+    } else {
+        PlayerInput.classList.add("display-non")
+        splashScreen.classList.add("display-non")
+    }
+
+
 
 })
 playerPlayBotton.addEventListener("click", () => {
     namePlayer.innerHTML = PlayerInput.value
-    if (PlayerInput.value !== "") {
+    if (play.classList.contains("one")) {
+        if (PlayerInput.value !== "") {
+            play.style.display = "none"
+            start()
+            countDown(timer)
+        }
 
-        document.querySelector(".Player-name").style.display = "none"
-        start()
-        countDown(timer)
+    } else {
+        if (PlayerInput.classList.contains("display-non")) {
+            play.style.display = "none"
+            start()
+            countDown(timer)
+        }
     }
+
 
 
 })
