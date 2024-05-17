@@ -133,6 +133,7 @@ startGame.addEventListener("click", () => {
         PlayerInput.focus()
 
     } else {
+        document.querySelector(".background").play()
         PlayerInput.classList.add("display-non")
         splashScreen.classList.add("display-non")
     }
@@ -182,6 +183,7 @@ function countDown() {
             clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
             document.querySelector(".sound-fild").play()
+            document.querySelector(".background").pause()
         }
         if (timer < 10) {
             timerSction.style.color = "red"
