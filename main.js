@@ -10,8 +10,8 @@ const win = document.querySelector(".win")
 const boxArry = Array.from(box)
 let worngTries = document.querySelector(".num-wrong")
 const timerSction = document.querySelector(".timer-sction")
-worngTries.innerHTML = 0;
-let wrongNum = "15"
+worngTries.innerHTML = 15;
+let wrongNum = "0"
 let duration = 1000;
 let nice = 0;
 let timer = 60; //per mins
@@ -114,13 +114,14 @@ function matchOrNot(firstBox, scoundBox) {
         document.querySelector(".sparkle").play()
     } else {
 
-        worngTries.innerHTML++
+        worngTries.innerHTML--
         setTimeout(() => {
             firstBox.classList.remove("flip");
             scoundBox.classList.remove("flip");
         }, duration)
 
         if (worngTries.innerHTML === wrongNum) {
+            document.querySelector(".heart").innerHTML = "&#128148;"
             gameOver.classList.add("display-flex")
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
