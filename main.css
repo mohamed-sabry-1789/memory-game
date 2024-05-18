@@ -155,7 +155,7 @@ button {
 .contanier .blocks {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 5px;
     perspective: 1000px;
 }
@@ -166,6 +166,7 @@ button {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+
 }
 
 
@@ -235,31 +236,51 @@ a {
 @media (max-width:600px) {
     .contanier {
         width: 100%;
-        height: 100%;
+        height: 50px;
         margin: 10px auto;
     }
 
     .contanier .blocks {
-        margin-top: 30px;
+        margin: 30px 10px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
         gap: 5px;
         perspective: 1000px;
+
     }
 
-    .win span,
-    .game-over span {
-        font-size: 40px;
-        margin-left: 3px;
-        margin-top: 10px;
+    .contanier .blocks .box .front::before {
+
+        font-size: 80px;
+
+        line-height: 90px;
     }
 
-    .rest {
-        width: 80px;
+    .contanier .blocks .box {
+        height: 90px;
     }
 
-    .Player-name button {
-        padding: 5px 10px;
+    .Player-name {
+        left: -50px
     }
+}
+
+
+
+.win span,
+.game-over span {
+    font-size: 40px;
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+.rest {
+    width: 80px;
+}
+
+
+
+.Player-name button {
+    padding: 5px 5px;
+
 }
