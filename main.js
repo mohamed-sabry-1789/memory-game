@@ -96,10 +96,9 @@ function start() {
         box.classList.add("flip")
 
         setTimeout(() => {
-            box.classList.remove("flip")
-
-        }, duration)
-
+            box.classList.remove("flip");
+            document.querySelector(".laugh").play()
+        }, 1500)
     })
 
 }
@@ -157,16 +156,16 @@ startGame.addEventListener("click", () => {
 })
 
 
-function happy() {
+function funny() {
     playerPlayBotton.addEventListener("mousemove", () => {
         if (PlayerInput.value === "") {
             playerPlayBotton.classList.toggle("left");
+            document.querySelector(".no-input").play()
         }
     })
 }
 
-happy();
-
+funny();
 
 
 
