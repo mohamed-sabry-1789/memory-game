@@ -78,10 +78,18 @@ button {
     width: 200px;
     height: 50px;
     font-size: 25px;
+    left: 300px;
+    position: relative;
     font-weight: bold;
     background-color: #f44;
     color: white;
+    animation: move 1s forwards;
+}
 
+@keyframes move {
+    to {
+        left: 0;
+    }
 }
 
 .Player-name {
@@ -113,6 +121,19 @@ button {
     height: 30px;
     font-size: 12px;
     padding: 5px;
+    position: relative;
+    left: -100%;
+
+}
+
+@keyframes move-from-left {
+    to {
+        left: 0
+    }
+}
+
+.anmtion-for-input {
+    animation: move-from-left 1s forwards;
 }
 
 .Player-name input::placeholder {
@@ -128,8 +149,25 @@ button {
     background-color: #f44;
     color: white;
     font-size: 16px;
+    padding: 5px 5px;
+    right: -100%;
+    position: relative;
 
+}
 
+.left {
+    left: 100px;
+
+}
+
+.anmtion-for-button {
+    animation: move-from-right 1s forwards;
+}
+
+@keyframes move-from-right {
+    to {
+        right: 0;
+    }
 }
 
 .contanier {
@@ -263,6 +301,24 @@ a {
     .Player-name {
         left: -50px
     }
+
+    .Player-name button {
+
+        right: -150px;
+
+
+    }
+
+    .Player-name input {
+
+        left: -200px;
+
+    }
+
+    .left {
+        left: 50px;
+
+    }
 }
 
 
@@ -276,11 +332,4 @@ a {
 
 .rest {
     width: 80px;
-}
-
-
-
-.Player-name button {
-    padding: 5px 5px;
-
 }

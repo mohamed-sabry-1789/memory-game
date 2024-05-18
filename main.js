@@ -134,8 +134,11 @@ function matchOrNot(firstBox, scoundBox) {
 }
 
 startGame.addEventListener("click", () => {
+
     if (play.classList.contains("one")) {
         splashScreen.classList.add("display-non")
+        PlayerInput.classList.add("anmtion-for-input")
+        playerPlayBotton.classList.add("anmtion-for-button")
         document.querySelector(".background").play()
         //or
         // splashScreen.remove()
@@ -154,6 +157,21 @@ startGame.addEventListener("click", () => {
 })
 
 
+function happy() {
+    playerPlayBotton.addEventListener("mousemove", () => {
+        if (PlayerInput.value === "") {
+            playerPlayBotton.classList.toggle("left");
+        }
+    })
+}
+
+happy();
+
+
+
+
+
+
 playerPlayBotton.addEventListener("click", () => {
 
     namePlayer.innerHTML = PlayerInput.value
@@ -164,7 +182,6 @@ playerPlayBotton.addEventListener("click", () => {
             start()
             countDown(timer)
         }
-
     } else {
         if (PlayerInput.classList.contains("display-non")) {
             start()
