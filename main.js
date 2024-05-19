@@ -121,6 +121,7 @@ function matchOrNot(firstBox, scoundBox) {
 
         if (worngTries.innerHTML === wrongNum) {
             document.querySelector(".heart").innerHTML = "&#128148;"
+            clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()

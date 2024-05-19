@@ -330,16 +330,17 @@ a {
         position: relative;
         top: -5px
     }
+
+    .win span,
+    .game-over span {
+        font-size: 40px;
+        margin-left: 3px;
+        margin-top: 10px;
+    }
 }
 
 
 
-.win span,
-.game-over span {
-    font-size: 40px;
-    margin-left: 3px;
-    margin-top: 10px;
-}
 
 .rest {
     width: 80px;
