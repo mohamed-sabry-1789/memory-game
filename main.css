@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 button {
@@ -84,6 +85,7 @@ button {
     background-color: #f44;
     color: white;
     animation: move 1s forwards;
+    z-index: 5;
 }
 
 @keyframes move {
@@ -171,7 +173,7 @@ button {
 }
 
 .contanier {
-    width: 800px;
+    width: 700px;
     height: 100vh;
     margin: 10px auto;
 }
@@ -188,22 +190,44 @@ button {
     font-size: 20px;
     font-weight: bold;
     line-height: 1;
+
+}
+
+.contanier .info.a {
+    color: rgb(184, 14, 14)
+}
+
+.contanier .info.b {
+    color: rgb(38, 190, 0)
 }
 
 .contanier .blocks {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
     perspective: 1000px;
+    padding: 10px 70px;
+}
+
+.background-level1 {
+    background-image: url(/image/12.jpg);
+
+}
+
+.background-level2 {
+    background-image: url(/image/17.jpg);
+    background-size: cover;
+
 }
 
 .contanier .blocks .box {
-    height: 160px;
+    height: 120px;
     transition: transform .5s;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+
 
 }
 
@@ -218,13 +242,13 @@ button {
 .contanier .blocks .box .front::before {
     content: "!";
     color: wheat;
-    font-size: 100px;
+    font-size: 80px;
     position: absolute;
     background-color: black;
     width: 100%;
     height: 100%;
     text-align: center;
-    line-height: 160px;
+    line-height: 120px;
 }
 
 .contanier .blocks .box .front,
@@ -269,6 +293,22 @@ a {
     padding: 5px;
     width: 100px;
     border-radius: 10px 50px;
+}
+
+.contanier.frist {
+    background-image: url(/image/12.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+
+}
+
+.contanier.scound {
+    background-image: url(/image/17.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+
 }
 
 @media (max-width:600px) {
@@ -336,6 +376,10 @@ a {
         font-size: 40px;
         margin-left: 3px;
         margin-top: 10px;
+    }
+
+    .contanier .blocks {
+        padding: 5px;
     }
 }
 
