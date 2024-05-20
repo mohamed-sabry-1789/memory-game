@@ -194,7 +194,7 @@ button {
 }
 
 .contanier .info.a {
-    color: rgb(184, 14, 14)
+    color: rgb(0, 0, 0)
 }
 
 .contanier .info.b {
@@ -241,7 +241,7 @@ button {
 
 .contanier .blocks .box .front::before {
     content: "!";
-    color: wheat;
+    color: rgb(223, 219, 212);
     font-size: 80px;
     position: absolute;
     background-color: black;
