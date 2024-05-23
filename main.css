@@ -178,6 +178,7 @@ button {
 
 .contanier {
     width: 700px;
+    min-height: 90vh;
     height: 100vh;
     margin: 10px auto;
 
