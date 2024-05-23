@@ -50,7 +50,6 @@ function shuffel(arry) {
 
 function stopClick() {
     blocks.classList.add("no-click");
-
     setTimeout(() => {
         blocks.classList.remove("no-click")
 
@@ -79,7 +78,6 @@ function start() {
             }
             if (boxArry[i].classList.contains("match")) {
                 nice++
-
                 if (nice == (boxArry.length / 2)) {
                     document.querySelector(".sound-win").play()
                     win.classList.add("display-flex")
@@ -253,15 +251,18 @@ function levelTwo() {
             block.append(box)
         }
     }
-    win.classList.add("display-non")
-    start()
+
+}
+
+nextLevel.addEventListener("click", () => {
+    document.querySelector(".background").play()
+    levelTwo()
     countDown(timer)
+    start()
+    win.classList.add("display-non")
     rest.style.display = "block"
     contanier.style.backgroundImage = "url(image/3.jpg)"
     info.style.borderColor = "green"
-    document.querySelector(".background").play()
-}
-
-nextLevel.addEventListener("click", levelTwo)
+})
 
 
