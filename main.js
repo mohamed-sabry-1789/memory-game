@@ -238,7 +238,7 @@ function levelOne() {
 function levelTwo() {
     blocks.replaceChildren();
     for (let j = 0; j < 2; j++) {
-        for (let i = 8; i < 18; i++) {
+        for (let i = 8; i < 16; i++) {
             const box = document.createElement("div");
             box.classList.add("box")
             box.dataset.name = i;
