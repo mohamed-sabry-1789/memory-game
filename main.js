@@ -1,4 +1,4 @@
-const box = document.querySelectorAll(".box")
+
 const startGame = document.querySelector(".splash-screen .start-button")
 const splashScreen = document.querySelector(".splash-screen")
 const PlayerInput = document.querySelector(".Player-name input")
@@ -7,22 +7,25 @@ const namePlayer = document.querySelector(".name-sction .name-player")
 const blocks = document.querySelector(".blocks")
 const gameOver = document.querySelector(".game-over")
 const win = document.querySelector(".win")
-const boxArry = Array.from(box)
+const nextLevel = document.querySelector(".level-two");
 let worngTries = document.querySelector(".num-wrong")
 const timerSction = document.querySelector(".timer-sction")
-worngTries.innerHTML = 15;
+const contanier = document.querySelector(".contanier")
+const info = document.querySelector(".info")
+worngTries.innerHTML = 20;
 let wrongNum = "0"
 let duration = 1000;
 let nice = 0;
-let timer = 90; //per mins
+let timer = 120; //per mins
 let play = document.querySelector(".Player-name")
-let pageName = window.location.pathname.split('/')
+// let pageName = window.location.pathname.split('/')
+// console.log(pageName)
 const rest = document.querySelector(".rest")
 
 // console.log(rangeNumbrsArry.length)
 // let randumNum = Math.floor(Math.random() * boxArry.length)
-const rangeNumbrsArry = [...boxArry.keys()]
-shuffel(rangeNumbrsArry)
+
+
 
 // console.log([...boxArry.keys()])
 //or console.log([...Array(boxarry.length).keys()])
@@ -42,44 +45,8 @@ function shuffel(arry) {
 
 }
 
-boxArry.forEach((box, i) => {
 
-    box.style.order = rangeNumbrsArry[i]
-    //or el.style.order = Math.floor(Math.random() * boxArry.length)
-    box.addEventListener("click", () => {
-        box.classList.add("flip")
 
-        let allFlipedBox = boxArry.filter((el) => {
-            return el.classList.contains("flip")
-        })
-        if (allFlipedBox.length === 2) {
-            stopClick()
-            matchOrNot(allFlipedBox[0], allFlipedBox[1])
-        }
-        if (boxArry[i].classList.contains("match")) {
-            nice++
-
-            if (nice == (boxArry.length / 2)) {
-                document.querySelector(".sound-win").play()
-                win.classList.add("display-flex")
-                clearInterval(countDownIntrvel)
-                document.querySelector(".background").pause()
-                if (pageName[1] === "level-two.html") {
-                    localStorage.clear()
-                }
-            }
-
-        }
-
-    })
-
-})
-
-if (pageName[1] === "level-two.html") {
-    playerPlayBotton.style.display = "none"
-    play.style.display = "none"
-
-}
 
 function stopClick() {
     blocks.classList.add("no-click");
@@ -92,9 +59,43 @@ function stopClick() {
 }
 
 function start() {
+    const box = document.querySelectorAll(".blocks .box")
+    const boxArry = Array.from(box)
+    const rangeNumbrsArry = [...boxArry.keys()]
+    shuffel(rangeNumbrsArry)
+    boxArry.forEach((box, i) => {
+
+        box.style.order = rangeNumbrsArry[i]
+        //or el.style.order = Math.floor(Math.random() * boxArry.length)
+        box.addEventListener("click", () => {
+            box.classList.add("flip")
+
+            let allFlipedBox = boxArry.filter((el) => {
+                return el.classList.contains("flip")
+            })
+            if (allFlipedBox.length === 2) {
+                stopClick()
+                matchOrNot(allFlipedBox[0], allFlipedBox[1])
+            }
+            if (boxArry[i].classList.contains("match")) {
+                nice++
+
+                if (nice == (boxArry.length / 2)) {
+                    document.querySelector(".sound-win").play()
+                    win.classList.add("display-flex")
+                    rest.style.display = "block"
+                    clearInterval(countDownIntrvel)
+                    document.querySelector(".background").pause()
+
+                }
+
+            }
+
+        })
+
+    })
     boxArry.forEach((box) => {
         box.classList.add("flip")
-
         setTimeout(() => {
             box.classList.remove("flip");
             document.querySelector(".laugh").play()
@@ -123,6 +124,7 @@ function matchOrNot(firstBox, scoundBox) {
             document.querySelector(".heart").innerHTML = "&#128148;"
             clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
+            rest.style.display = "block"
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
             localStorage.clear()
@@ -134,25 +136,13 @@ function matchOrNot(firstBox, scoundBox) {
 }
 
 startGame.addEventListener("click", () => {
-
-    if (play.classList.contains("one")) {
-        splashScreen.classList.add("display-non")
-        PlayerInput.classList.add("anmtion-for-input")
-        playerPlayBotton.classList.add("anmtion-for-button")
-        document.querySelector(".background").play()
-        //or
-        // splashScreen.remove()
-        PlayerInput.focus()
-
-    } else {
-        document.querySelector(".background").play()
-        PlayerInput.classList.add("display-non")
-        splashScreen.classList.add("display-non")
-        countDown(timer)
-        start()
-    }
-
-
+    splashScreen.classList.add("display-non")
+    PlayerInput.classList.add("anmtion-for-input")
+    playerPlayBotton.classList.add("anmtion-for-button")
+    document.querySelector(".background").play()
+    //or
+    // splashScreen.remove()
+    PlayerInput.focus()
 
 })
 
@@ -173,24 +163,16 @@ funny();
 
 
 playerPlayBotton.addEventListener("click", () => {
-
+    levelOne()
+    start()
     namePlayer.innerHTML = PlayerInput.value
     localStorage.setItem("value", JSON.stringify(namePlayer.innerHTML))
-    if (play.classList.contains("one")) {
-        if (PlayerInput.value !== "") {
-            play.style.display = "none"
-            start()
-            countDown(timer)
-        }
-    } else {
-        if (PlayerInput.classList.contains("display-non")) {
-            start()
-            countDown(timer)
-        }
+    if (PlayerInput.value !== "") {
+        play.style.display = "none"
+        countDown(timer)
     }
 })
 let nameValue = localStorage.getItem("value")
-
 if (nameValue) {
     namePlayer.innerHTML = JSON.parse(nameValue)
 }
@@ -214,6 +196,7 @@ function countDown() {
         } else {
             clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
+            rest.style.display = "block"
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
             localStorage.clear()
@@ -231,3 +214,54 @@ function countDown() {
 rest.addEventListener("click", () => {
     localStorage.clear()
 })
+
+const block = document.querySelector(".blocks")
+function levelOne() {
+    for (let j = 0; j < 2; j++) {
+        for (let i = 1; i < 7; i++) {
+            const box = document.createElement("div");
+            box.classList.add("box")
+            box.dataset.name = i;
+            const imgs = document.createElement("img");
+            const front = document.createElement("div")
+            front.classList.add("front")
+            const back = document.createElement("div")
+            back.classList.add("back")
+            imgs.src = `/image/${i}.jpg`
+            back.append(imgs)
+            box.append(front, back)
+            block.append(box)
+        }
+    }
+
+}
+function levelTwo() {
+    blocks.replaceChildren();
+    for (let j = 0; j < 2; j++) {
+        for (let i = 8; i < 18; i++) {
+            const box = document.createElement("div");
+            box.classList.add("box")
+            box.dataset.name = i;
+            const imgs = document.createElement("img");
+            const front = document.createElement("div")
+            front.classList.add("front")
+            const back = document.createElement("div")
+            back.classList.add("back")
+            imgs.src = `/image/${i}.jpg`
+            back.append(imgs)
+            box.append(front, back)
+            block.append(box)
+        }
+    }
+    win.classList.add("display-non")
+    start()
+    countDown(timer)
+    rest.style.display = "block"
+    contanier.style.backgroundImage = "url(image/3.jpg)"
+    info.style.borderColor = "green"
+    document.querySelector(".background").play()
+}
+
+nextLevel.addEventListener("click", levelTwo)
+
+

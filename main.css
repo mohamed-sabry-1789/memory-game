@@ -162,6 +162,10 @@ button {
 
 }
 
+.level-two {
+    color: green;
+}
+
 .anmtion-for-button {
     animation: move-from-right 1s forwards;
 }
@@ -194,14 +198,14 @@ button {
     backdrop-filter: blur(10px);
 }
 
-.info.a {
+.info {
     border: 5px double rgb(3, 247, 255);
 
 
 }
 
 .contanier .blocks {
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 10px;
@@ -285,21 +289,14 @@ a {
     padding: 5px;
     width: 100px;
     border-radius: 10px 50px;
+    display: none;
 }
 
-.contanier.frist {
+.contanier {
     background-image: url(/image/12.jpg);
     background-size: cover;
     background-position: center;
 
-
-}
-
-.contanier.scound {
-    background-image: url(/image/16.png);
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
 
 }
 
