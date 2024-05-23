@@ -162,9 +162,7 @@ button {
 
 }
 
-.level-two {
-    color: green;
-}
+
 
 .anmtion-for-button {
     animation: move-from-right 1s forwards;
@@ -260,6 +258,7 @@ button {
 }
 
 .level-two {
+    color: green;
     padding: 5px;
     width: 100px;
     border-radius: 10px 50px;
@@ -348,7 +347,7 @@ a {
     .level-two {
         position: relative;
         top: 6px;
-
+        order: 3;
     }
 
     .left {
@@ -357,25 +356,26 @@ a {
     }
 
     .reset {
+        width: 80px;
         position: relative;
-        top: -5px
+        top: -5px;
+        order: 1;
     }
+
 
     .win span,
     .game-over span {
         font-size: 40px;
         margin-left: 3px;
         margin-top: 10px;
+
+    }
+
+    .win span {
+        order: 2;
     }
 
     .contanier .blocks {
         padding: 5px;
     }
-}
-
-
-
-
-.reset {
-    width: 80px;
 }
