@@ -12,6 +12,7 @@ let worngTries = document.querySelector(".num-wrong")
 const timerSction = document.querySelector(".timer-sction")
 const contanier = document.querySelector(".contanier")
 const info = document.querySelector(".info")
+const reset = document.querySelector(".reset")
 worngTries.innerHTML = 20;
 let wrongNum = "0"
 let duration = 1000;
@@ -20,7 +21,7 @@ let timer = 120; //per mins
 let play = document.querySelector(".Player-name")
 // let pageName = window.location.pathname.split('/')
 // console.log(pageName)
-const rest = document.querySelector(".rest")
+
 
 // console.log(rangeNumbrsArry.length)
 // let randumNum = Math.floor(Math.random() * boxArry.length)
@@ -79,9 +80,9 @@ function start() {
             if (boxArry[i].classList.contains("match")) {
                 nice++
                 if (nice == (boxArry.length / 2)) {
+                    reset.style.display = "none"
                     document.querySelector(".sound-win").play()
                     win.classList.add("display-flex")
-                    rest.style.display = "block"
                     clearInterval(countDownIntrvel)
                     document.querySelector(".background").pause()
 
@@ -122,7 +123,7 @@ function matchOrNot(firstBox, scoundBox) {
             document.querySelector(".heart").innerHTML = "&#128148;"
             clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
-            rest.style.display = "block"
+            reset.style.display = "block"
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
             localStorage.clear()
@@ -194,7 +195,7 @@ function countDown() {
         } else {
             clearInterval(countDownIntrvel)
             gameOver.classList.add("display-flex")
-            rest.style.display = "block"
+            reset.style.display = "block"
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
             localStorage.clear()
@@ -209,7 +210,7 @@ function countDown() {
 
 }
 
-rest.addEventListener("click", () => {
+reset.addEventListener("click", () => {
     localStorage.clear()
 })
 
@@ -234,6 +235,7 @@ function levelOne() {
 
 }
 function levelTwo() {
+    nice = 0
     blocks.replaceChildren();
     for (let j = 0; j < 2; j++) {
         for (let i = 8; i < 16; i++) {
@@ -255,14 +257,15 @@ function levelTwo() {
 }
 
 nextLevel.addEventListener("click", () => {
+    win.classList.remove("display-flex")
+    nextLevel.classList.add("display-non")
     document.querySelector(".background").play()
+    contanier.style.backgroundImage = "url(image/3.jpg)"
+    info.style.borderColor = "green"
     levelTwo()
     countDown(timer)
     start()
-    win.classList.add("display-non")
-    rest.style.display = "block"
-    contanier.style.backgroundImage = "url(image/3.jpg)"
-    info.style.borderColor = "green"
+
 })
 
 

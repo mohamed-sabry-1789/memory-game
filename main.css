@@ -285,12 +285,12 @@ a {
     height: 100%;
 }
 
-.rest {
+.reset {
     margin-top: 25px;
     padding: 5px;
     width: 90px;
     border-radius: 10px 50px;
-    display: none;
+
 }
 
 .contanier {
@@ -356,7 +356,7 @@ a {
 
     }
 
-    .rest {
+    .reset {
         position: relative;
         top: -5px
     }
@@ -376,6 +376,6 @@ a {
 
 
 
-.rest {
+.reset {
     width: 80px;
 }
