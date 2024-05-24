@@ -19,6 +19,7 @@ worngTries.innerHTML = 20;
 let wrongNum = "0"
 let duration = 1000;
 let nice = 0;
+let right = 0;
 let timer = 120; //per mins
 let play = document.querySelector(".Player-name")
 // let pageName = window.location.pathname.split('/')
@@ -133,9 +134,19 @@ function matchOrNot(firstBox, scoundBox) {
         }
         document.querySelector(".success").play()
     }
+    if (firstBox.dataset.name === scoundBox.dataset.name) {
 
-
+        right += 1
+    } else {
+        right = 0
+    }
+    if (right === 3) {
+        right = 0
+        worngTries.innerHTML++
+    }
+    console.log(right)
 }
+
 
 startGame.addEventListener("click", () => {
     splashScreen.classList.add("display-non")
@@ -342,6 +353,7 @@ levelFour.addEventListener("click", () => {
         timer += 50
     }
     if (worngTries.innerHTML < 10) {
-        worngTries.innerHTML += 10
+        worngTries.innerHTML = 10
     }
 })
+
