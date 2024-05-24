@@ -15,7 +15,11 @@ const timerSction = document.querySelector(".timer-sction")
 const contanier = document.querySelector(".contanier")
 const info = document.querySelector(".info")
 const reset = document.querySelector(".reset")
-worngTries.innerHTML = 20;
+let value = 20
+function valInner() {
+    worngTries.textContent = value
+}
+valInner()
 let wrongNum = "0"
 let duration = 1000;
 let nice = 0;
@@ -117,7 +121,8 @@ function matchOrNot(firstBox, scoundBox) {
         document.querySelector(".sparkle").play()
     } else {
 
-        worngTries.innerHTML--
+        value--
+        valInner()
         setTimeout(() => {
             firstBox.classList.remove("flip");
             scoundBox.classList.remove("flip");
@@ -142,7 +147,8 @@ function matchOrNot(firstBox, scoundBox) {
     }
     if (right === 3) {
         right = 0
-        worngTries.innerHTML++
+        value += 1
+        valInner()
     }
     console.log(right)
 }
@@ -353,7 +359,8 @@ levelFour.addEventListener("click", () => {
         timer += 50
     }
     if (worngTries.innerHTML < 10) {
-        worngTries.innerHTML = 10
+        value += 10
+        valInner()
     }
 })
 
