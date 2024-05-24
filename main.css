@@ -455,12 +455,14 @@ a {
     opacity: 0;
     transform: scale(1);
     transition: 1s;
+    font-size: 10px;
 }
 
 .plus-five {
     left: 50%;
     top: 10px;
     color: rgba(0, 0, 255, 0.712);
+    font-size: 15px;
 }
 
 .animatinPlus {

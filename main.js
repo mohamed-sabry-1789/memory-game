@@ -149,6 +149,7 @@ function matchOrNot(firstBox, scoundBox) {
         value += 1
         valInner()
         document.querySelector(".plus").classList.add("animatinPlus")
+        document.querySelector(".extra-lives").play()
         setTimeout(() => {
             document.querySelector(".plus").classList.remove("animatinPlus")
         }, 1000)
@@ -158,6 +159,7 @@ function matchOrNot(firstBox, scoundBox) {
         right = 0
         timer += 5
         document.querySelector(".plus-five").classList.add("animatinPlus")
+        document.querySelector(".extra-time").play()
         setTimeout(() => {
             document.querySelector(".plus-five").classList.remove("animatinPlus")
         }, 1000)
