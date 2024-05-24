@@ -8,21 +8,24 @@ const blocks = document.querySelector(".blocks")
 const gameOver = document.querySelector(".game-over")
 const win = document.querySelector(".win")
 const nextLevel = document.querySelector(".level-two");
+const levelThree = document.querySelector(".level-three")
+const levelFour = document.querySelector(".level-four")
 let worngTries = document.querySelector(".num-wrong")
 const timerSction = document.querySelector(".timer-sction")
 const contanier = document.querySelector(".contanier")
 const info = document.querySelector(".info")
 const reset = document.querySelector(".reset")
-worngTries.innerHTML = 20;
+worngTries.innerHTML = 200;
 let wrongNum = "0"
-let duration = 1000;
+let duration = 20;
 let nice = 0;
 let timer = 120; //per mins
 let play = document.querySelector(".Player-name")
 // let pageName = window.location.pathname.split('/')
 // console.log(pageName)
 
-
+levelThree.classList.add("display-non")
+levelFour.classList.add("display-non")
 // console.log(rangeNumbrsArry.length)
 // let randumNum = Math.floor(Math.random() * boxArry.length)
 
@@ -256,6 +259,7 @@ function levelTwo() {
 
 }
 
+
 nextLevel.addEventListener("click", () => {
     win.classList.remove("display-flex")
     nextLevel.classList.add("display-non")
@@ -265,7 +269,77 @@ nextLevel.addEventListener("click", () => {
     levelTwo()
     countDown(timer)
     start()
-
+    levelThree.classList.remove("display-non")
 })
 
 
+function levelNThree() {
+    nice = 0
+    blocks.replaceChildren();
+    for (let j = 0; j < 2; j++) {
+        for (let i = 5; i < 16; i++) {
+            const box = document.createElement("div");
+            box.classList.add("box")
+            box.dataset.name = i;
+            const imgs = document.createElement("img");
+            const front = document.createElement("div")
+            front.classList.add("front")
+            const back = document.createElement("div")
+            back.classList.add("back")
+            imgs.src = `/image/${i}.jpg`
+            back.append(imgs)
+            box.append(front, back)
+            block.append(box)
+        }
+    }
+
+}
+levelThree.addEventListener("click", () => {
+    win.classList.remove("display-flex")
+    levelThree.classList.add("display-non")
+    document.querySelector(".background").play()
+    contanier.style.backgroundImage = "url(image/11.jpg)"
+    info.style.borderColor = "blue"
+    levelNThree()
+    countDown(timer)
+    start()
+    blocks.classList.add("three")
+    levelFour.classList.remove("display-non")
+})
+function levelNFour() {
+    nice = 0
+    blocks.replaceChildren();
+    for (let j = 0; j < 2; j++) {
+        for (let i = 1; i < 18; i++) {
+            const box = document.createElement("div");
+            box.classList.add("box")
+            box.dataset.name = i;
+            const imgs = document.createElement("img");
+            const front = document.createElement("div")
+            front.classList.add("front")
+            const back = document.createElement("div")
+            back.classList.add("back")
+            imgs.src = `/image/${i}.jpg`
+            back.append(imgs)
+            box.append(front, back)
+            block.append(box)
+        }
+    }
+
+}
+levelFour.addEventListener("click", () => {
+    win.classList.remove("display-flex")
+    document.querySelector(".background").play()
+    contanier.style.backgroundImage = "url(image/3.jpg)"
+    info.style.borderColor = "purple"
+    levelNFour()
+    countDown(timer)
+    start()
+    blocks.classList.add("four")
+    if (timer < 90) {
+        timer += 50
+    }
+    if (worngTries.innerHTML < 10) {
+        worngTries.innerHTML += 10
+    }
+})

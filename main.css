@@ -178,7 +178,8 @@ button {
     width: 700px;
     min-height: 90vh;
     height: 100vh;
-    margin: 10px auto;
+    margin: auto;
+
 
 }
 
@@ -214,7 +215,30 @@ button {
 
 }
 
+.contanier .blocks.three {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
 
+.contanier .blocks.three .box {
+    height: 90px;
+}
+
+.contanier .blocks.three .box .front::before {
+    line-height: 90px;
+}
+
+.contanier .blocks.four {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+}
+
+.contanier .blocks.four .box {
+    height: 75px;
+}
+
+.contanier .blocks.four .box .front::before {
+    line-height: 75px;
+    font-size: 60px;
+}
 
 .contanier .blocks .box {
     height: 120px;
@@ -257,7 +281,9 @@ button {
 
 }
 
-.level-two {
+.level-two,
+.level-three,
+.level-four {
     color: green;
     padding: 5px;
     width: 100px;
@@ -316,15 +342,40 @@ a {
 
     }
 
+    .contanier .blocks .box {
+        height: 90px;
+    }
+
     .contanier .blocks .box .front::before {
-
         font-size: 80px;
-
         line-height: 90px;
     }
 
-    .contanier .blocks .box {
-        height: 90px;
+
+    .contanier .blocks.three {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+
+    .contanier .blocks.three .box {
+        height: 70px;
+    }
+
+    .contanier .blocks.three .box .front::before {
+        line-height: 70px;
+        font-size: 60px;
+    }
+
+    .contanier .blocks.four {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    }
+
+    .contanier .blocks.four .box {
+        height: 60px;
+    }
+
+    .contanier .blocks.four .box .front::before {
+        line-height: 60px;
+        font-size: 55px;
     }
 
     .Player-name {
@@ -344,7 +395,9 @@ a {
 
     }
 
-    .level-two {
+    .level-two,
+    .level-three,
+    .level-four {
         position: relative;
         top: 6px;
         order: 3;
