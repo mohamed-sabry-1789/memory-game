@@ -269,6 +269,7 @@ nextLevel.addEventListener("click", () => {
     levelTwo()
     countDown(timer)
     start()
+    blocks.classList.add("two")
     levelThree.classList.remove("display-non")
 })
 

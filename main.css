@@ -336,7 +336,7 @@ a {
     .contanier .blocks {
         margin: 10px 10px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
         gap: 5px;
         perspective: 1000px;
 
@@ -351,9 +351,20 @@ a {
         line-height: 90px;
     }
 
+    .contanier .blocks.two {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+
+    .contanier .blocks.two .box {
+        height: 80px;
+    }
+
+    .contanier .blocks.two .box .front::before {
+        line-height: 80px;
+    }
 
     .contanier .blocks.three {
-        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
     }
 
     .contanier .blocks.three .box {
@@ -366,7 +377,7 @@ a {
     }
 
     .contanier .blocks.four {
-        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
     }
 
     .contanier .blocks.four .box {
