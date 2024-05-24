@@ -336,6 +336,7 @@ levelFour.addEventListener("click", () => {
     levelNFour()
     countDown(timer)
     start()
+    levelFour.classList.add("display-non")
     blocks.classList.add("four")
     if (timer < 90) {
         timer += 50
