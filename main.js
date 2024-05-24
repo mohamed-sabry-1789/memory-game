@@ -145,12 +145,24 @@ function matchOrNot(firstBox, scoundBox) {
     } else {
         right = 0
     }
-    if (right === 3) {
-        right = 0
+    if (right === 2) {
         value += 1
         valInner()
+        document.querySelector(".plus").classList.add("animatinPlus")
+        setTimeout(() => {
+            document.querySelector(".plus").classList.remove("animatinPlus")
+        }, 1000)
+
     }
-    console.log(right)
+    if (right === 3) {
+        right = 0
+        timer += 5
+        document.querySelector(".plus-five").classList.add("animatinPlus")
+        setTimeout(() => {
+            document.querySelector(".plus-five").classList.remove("animatinPlus")
+        }, 1000)
+    }
+
 }
 
 
@@ -359,7 +371,7 @@ levelFour.addEventListener("click", () => {
         timer += 50
     }
     if (worngTries.innerHTML < 10) {
-        value += 10
+        value += 5
         valInner()
     }
 })

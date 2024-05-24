@@ -443,3 +443,35 @@ a {
         padding: 5px;
     }
 }
+
+.plus,
+.plus-five {
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    color: red;
+    top: 10px;
+    right: 2px;
+    opacity: 0;
+    transform: scale(1);
+    transition: 1s;
+}
+
+.plus-five {
+    left: 50%;
+    top: 10px;
+    color: rgba(0, 0, 255, 0.712);
+}
+
+.animatinPlus {
+    animation: plusOne 1s backwards;
+}
+
+@keyframes plusOne {
+    to {
+        opacity: .7;
+        top: -5px;
+        transform: scale(1.5);
+    }
+
+}
