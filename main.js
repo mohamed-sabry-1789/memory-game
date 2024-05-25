@@ -15,7 +15,7 @@ const timerSction = document.querySelector(".timer-sction")
 const contanier = document.querySelector(".contanier")
 const info = document.querySelector(".info")
 const reset = document.querySelector(".reset")
-let value = 20
+let value = 30
 function valInner() {
     worngTries.textContent = value
 }
@@ -24,7 +24,7 @@ let wrongNum = "0"
 let duration = 1000;
 let nice = 0;
 let right = 0;
-let timer = 120; //per mins
+let timer = 180; //per mins
 let play = document.querySelector(".Player-name")
 // let pageName = window.location.pathname.split('/')
 // console.log(pageName)
