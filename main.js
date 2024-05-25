@@ -156,7 +156,6 @@ function matchOrNot(firstBox, scoundBox) {
 
     }
     if (right === 3) {
-        right = 0
         timer += 5
         document.querySelector(".plus-five").classList.add("animatinPlus")
         document.querySelector(".extra-time").play()
@@ -164,7 +163,18 @@ function matchOrNot(firstBox, scoundBox) {
             document.querySelector(".plus-five").classList.remove("animatinPlus")
         }, 1000)
     }
-
+    if (right === 4) {
+        right = 0
+        value += 1
+        timer += 5
+        document.querySelector(".plus").classList.add("animatinPlus")
+        document.querySelector(".plus-five").classList.add("animatinPlus")
+        document.querySelector(".laugh").play()
+        setTimeout(() => {
+            document.querySelector(".plus").classList.remove("animatinPlus")
+            document.querySelector(".plus-five").classList.remove("animatinPlus")
+        }, 1000)
+    }
 }
 
 
@@ -292,6 +302,7 @@ function levelTwo() {
 
 
 nextLevel.addEventListener("click", () => {
+    right = 0
     win.classList.remove("display-flex")
     nextLevel.classList.add("display-non")
     document.querySelector(".background").play()
@@ -327,6 +338,7 @@ function levelNThree() {
 
 }
 levelThree.addEventListener("click", () => {
+    right = 0
     win.classList.remove("display-flex")
     levelThree.classList.add("display-non")
     document.querySelector(".background").play()
