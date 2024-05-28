@@ -135,7 +135,7 @@ function matchOrNot(firstBox, scoundBox) {
             reset.style.display = "block"
             document.querySelector(".sound-fild").play()
             document.querySelector(".background").pause()
-            localStorage.clear()
+            // localStorage.clear()
         }
         document.querySelector(".success").play()
     }
@@ -218,6 +218,7 @@ playerPlayBotton.addEventListener("click", () => {
 let nameValue = localStorage.getItem("value")
 if (nameValue) {
     namePlayer.innerHTML = JSON.parse(nameValue)
+    PlayerInput.value = JSON.parse(nameValue)
 }
 window.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -254,9 +255,9 @@ function countDown() {
 
 }
 
-reset.addEventListener("click", () => {
-    localStorage.clear()
-})
+// reset.addEventListener("click", () => {
+//     localStorage.clear()
+// })
 
 const block = document.querySelector(".blocks")
 function levelOne() {
@@ -323,6 +324,7 @@ function levelNThree() {
         for (let i = 5; i < 16; i++) {
             const box = document.createElement("div");
             box.classList.add("box")
+
             box.dataset.name = i;
             const imgs = document.createElement("img");
             const front = document.createElement("div")

@@ -450,19 +450,21 @@ a {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
     color: red;
-    top: 10px;
-    right: 2px;
+    top: 300px;
+    right: 50%;
     opacity: 0;
     transform: scale(1);
     transition: 1s;
-    font-size: 10px;
+    font-size: 100px;
+
 }
 
 .plus-five {
     left: 50%;
-    top: 10px;
+    top: 300px;
     color: rgba(0, 0, 255, 0.712);
-    font-size: 15px;
+    font-size: 100px;
+
 }
 
 .animatinPlus {
@@ -471,7 +473,7 @@ a {
 
 @keyframes plusOne {
     to {
-        opacity: .7;
+        opacity: 1;
         top: -5px;
         transform: scale(1.5);
     }
